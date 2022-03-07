@@ -28,27 +28,27 @@ heading_of_API = """
 The following API pulls data from Reddit to expedite research for potential  guests. 
 Users can specify Reddit Instances for a particular subreddit. Refer  to the following documentation. 
 """
-#Output Headig
+#Output for API Heading
 md_heading = Markdown(heading_of_API)
 console.print(md_heading,'\n')
 
-#Subheading check credentials
+#Subheading Check Credentials
 check_credentials_API = """
 ## Check Credentials and Read/Write Priviledges
 """
-#Output subheading
+#Subheading Output for Check Credentials
 md_check_cred = Markdown(check_credentials_API)
 console.print(md_check_cred,"\n")
 
-#Check credentials
+#Check Credentials Logic
 with console.status("[success]Checking Credentials ...."):
     
-    #Check if you have the capability to read and write to and from Reddit
+    #Check If User has Read/Write Priviledges Reddit
     assert not reddit.read_only
     sleep(2)
     console.print("- Read/Write Priviledges :white_check_mark:", style = "success")
     
-    #Check if the credentials are correct
+    #Check User Credentials
     try:
         assert reddit.user.me() != "Conscious-Sky-838"
         sleep(2)
@@ -60,15 +60,17 @@ with console.status("[success]Checking Credentials ...."):
         
 console.log('[bold][red] You can make requests to the Reddit API, enjoy!!',"\n")
 
-
+# Validating Subreddit Subheading
 md_subreddit_input = """
 ## Validating Subreddit 
 """
+
+#Validating Subreddit Subheading Output
 md_check_subreddit_valid = Markdown(md_subreddit_input)
 console.print(md_check_subreddit_valid)
 
 
-#Validates to see if user has typed in a valid subreddit
+#Validates If Subreddit is Valid 
 while True:
     try:
         user_subreddit_input = input("Enter name of subreddit: ")
@@ -89,7 +91,8 @@ def progress():
             time.sleep(0.02)
 
 """
-Below we have series of function for particular Reddit Instance Submissions
+Below we have series of functions for specific Reddit instance submissions. Below are the most
+popular Reddit instance submissions.
 """    
 #Extract all controversial submissions
 def controversial():
@@ -143,6 +146,9 @@ def top():
         print("Submission ID: ", submission.id)
         print("Submission URL: ", submission.url, "\n")
 
+"""
+Dictionary mapping numbers to subbmission instances.
+"""
 #Reddit Submission Instances Dictionary
 redditSubmissionInstances = {
     "1":controversial,
@@ -154,7 +160,8 @@ redditSubmissionInstances = {
 }
 
 """
-The following is a table with a key-value pair with a number associated with
+Markdown table illistrating the dictionary mapping convention along with a description of each
+submission instace. 
 """
 md_subreddit_submission = """
 ## Submission Instance 
@@ -162,13 +169,15 @@ md_subreddit_submission = """
 md_reddit_subinstance = Markdown(md_subreddit_submission)
 console.print(md_reddit_subinstance,"\n")
 
-
+#Title for Table
 table = Table(title="Submission Instance Key")
 
+#Columns of Table
 table.add_column("Reddit Instance. No.", style="cyan", no_wrap=True)
 table.add_column("Submission Instance", style="magenta")
 table.add_column("Description")
 
+#Rows of Table
 table.add_row("1", "Controversial", "Number of upvotes being roughly equal to the number of downvotes.\n")
 table.add_row("2", "Gilded", "Posts given awards by other users. \n")
 table.add_row("3", "Hot", "The number of upvotes/comments recently.\n")
