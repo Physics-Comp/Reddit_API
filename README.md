@@ -34,8 +34,12 @@ If the user has entered an incorrect subreddit, the script will prompt the user 
 ![image](https://user-images.githubusercontent.com/51255104/156969449-da5eb2fb-1fc7-436b-b4cc-70c893dc1344.png)
 
 ## Choose a Reddit Submission Instance
-If the user has entered a valid subreddit a Submission Instance Key table will be generated and the user will be prompted to choose a Reddit Submission Instance number (the number of the table that is associated with it submission instance)
 
 Suppose the user has entered a valid subreddit. In that case, the script will generate a Submission Instance Key table. The script will prompt the user to choose a Reddit Submission Instance number (the table's number associated with its submission instance). 
 
+![image](https://user-images.githubusercontent.com/51255104/156972789-b99f3265-11e5-47bf-b12c-ad705e278336.png)
+
 Once a Reddit Instance number is entered, the script will prompt the user to enter the number of submissions (limit is 10). The API will process each request and output the following information.
+
+![image](https://user-images.githubusercontent.com/51255104/156972865-9d911e19-0f20-4e9f-8050-4b208d16867c.png)
+
