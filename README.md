@@ -2,4 +2,20 @@
 
 The following API pulls data from Reddit to expedite research for potential  guests. Users can specify Reddit Instances for a particular subreddit. Refer  to the following documentation.
 
+## Pip Install the Following Packages
+```
+(Reddit API)
+$ pip install praw
 
+(Rich API)
+$ pip install rich
+```
+
+## Validation of Credentials
+Upon running the script, the program will check the following.
+* Read/Write privileges
+* Are user credentials valid
+
+No input is required from the user to perform the following credentials check. The credentials used for the API are my developer credentials, and validation is performed to ensure API can pull data from Reddit.
+
+Below is an image of a successful validation
