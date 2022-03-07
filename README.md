@@ -19,3 +19,5 @@ Upon running the script, the program will check the following.
 No input is required from the user to perform the following credentials check. The credentials used for the API are my developer credentials, and validation is performed to ensure API can pull data from Reddit.
 
 Below is an image of a successful validation
+
+![image](https://user-images.githubusercontent.com/51255104/156967819-519dcf2e-af04-4366-8c6d-26660cd9ba20.png)
