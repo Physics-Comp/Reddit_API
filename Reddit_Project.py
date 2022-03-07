@@ -1,9 +1,9 @@
 #Import libraries
 import praw #Reddit API
 import time
+from time import sleep
 from rich.console import Console
 from rich.theme import Theme
-from time import sleep
 from rich.markdown import Markdown
 from rich.table import Table
 from rich.progress import Progress
@@ -12,7 +12,7 @@ from rich.progress import Progress
 custom_theme = Theme({"success":"green4", "error":"bold red","description":" bold orange3"})
 console = Console(theme=custom_theme)
 
-#Authoried reddit instance; ability to read and write to Reddit.
+#Authoried Reddit instance; ability to read and write to Reddit.
 reddit = praw.Reddit(
     client_id = "xkDH9z2z5pzh5V2dEPoA0w",
     client_secret = "9ivOeSBle5z9AQ3k8u4g-lOaBiRAmw",
@@ -26,7 +26,9 @@ reddit = praw.Reddit(
 heading_of_API = """
 # Reddit Guest Research API
 The following API pulls data from Reddit to expedite research for potential  guests. 
-Users can specify Reddit Instances for a particular subreddit. Refer  to the following documentation. 
+Users can specify Reddit Instances for a particular subreddit. Refer  to the following documentation.
+
+[Reddit API Doc.](https://github.com/Physics-Comp/Reddit_API/blob/main/README.md).
 """
 #Output for API Heading
 md_heading = Markdown(heading_of_API)
@@ -56,7 +58,7 @@ with console.status("[success]Checking Credentials ...."):
     except:
         assert reddit.user.me() == "Conscious-Sky-838"
         sleep(2)
-        console.print("- User credentials valid :white_check_mark:", style = "success")
+        console.print("- User Credentials Valid :white_check_mark:", style = "success")
         
 console.log('[bold][red] You can make requests to the Reddit API, enjoy!!',"\n")
 
