@@ -26,6 +26,9 @@ Below is an image of a successful validation
 
 Users will be prompted to enter the subreddit's name. Once the user hits enter, they will either receive a confirmation for a valid subreddit along with the title and description of the subreddit. 
 
+![image](https://user-images.githubusercontent.com/51255104/156969236-96a01c2d-a359-4a6b-9926-166a088fe690.png)
 
 
 If the user has entered an incorrect subreddit, the script will prompt the user to re-enter an existing subreddit.
+
+![image](https://user-images.githubusercontent.com/51255104/156969449-da5eb2fb-1fc7-436b-b4cc-70c893dc1344.png)
