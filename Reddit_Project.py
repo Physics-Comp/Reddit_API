@@ -28,7 +28,7 @@ heading_of_API = """
 The following API pulls data from Reddit to expedite research for potential  guests. 
 Users can specify Reddit Instances for a particular subreddit. Refer  to the following documentation.
 
-[Reddit API Doc.](https://github.com/Physics-Comp/Reddit_API/blob/main/README.md).
+Reddit API Doc. ==> (https://github.com/Physics-Comp/Reddit_API/blob/main/README.md).
 """
 #Output for API Heading
 md_heading = Markdown(heading_of_API)
