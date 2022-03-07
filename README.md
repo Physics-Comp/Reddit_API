@@ -24,5 +24,8 @@ Below is an image of a successful validation
 
 ## Validation of Subreddit
 
-Users will be prompted to enter the subreddit's name, and once the user hits enter, they will either receive a confirmation for a valid subreddit or an error. If the user has entered an incorrect subreddit, the script will prompt the user to re-enter an existing subreddit.
+Users will be prompted to enter the subreddit's name. Once the user hits enter, they will either receive a confirmation for a valid subreddit along with the title and description of the subreddit. 
 
+
+
+If the user has entered an incorrect subreddit, the script will prompt the user to re-enter an existing subreddit.
