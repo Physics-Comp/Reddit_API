@@ -39,6 +39,7 @@ Suppose the user has entered a valid subreddit. In that case, the script will ge
 
 ![image](https://user-images.githubusercontent.com/51255104/156972789-b99f3265-11e5-47bf-b12c-ad705e278336.png)
 
+## Number of Submissions
 Once a Reddit Instance number is entered, the script will prompt the user to enter the number of submissions (limit is 10). The API will process each request and output the following information.
 
 ![image](https://user-images.githubusercontent.com/51255104/156972865-9d911e19-0f20-4e9f-8050-4b208d16867c.png)
