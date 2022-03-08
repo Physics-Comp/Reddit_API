@@ -194,5 +194,5 @@ while True:
         submissionChoice = redditSubmissionInstances[input("Choose a Reddit Submission Instace Number: ")]()
         break;
     except:
-        print("Incorrect submission instace option, please refer to the table and choose a correct instance option")
+        console.log("Incorrect submission instace option, refer to the table!", style = "error")
         continue
