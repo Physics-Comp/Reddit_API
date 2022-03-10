@@ -1,6 +1,7 @@
 #Import libraries
 import praw #Reddit API
 import time
+import pprint
 from time import sleep
 from rich.console import Console
 from rich.theme import Theme
@@ -100,53 +101,58 @@ popular Reddit instance submissions.
 def controversial():
     for submission in subreddit.controversial(limit = int(input("Number of submissions: "))):
         progress()
-        print("Submission Title: ", submission.title)
-        print("Submission Score: ", submission.score)
-        print("Submission ID: ", submission.id)
+        print("Submission Title: ", submission.title, "\n")
+        print("Context:", submission.selftext, "\n")
+        print("Submission Score: ", submission.score, "\n")
+        print("Submission ID: ", submission.id, "\n")
         print("Submission URL: ", submission.url,"\n")
 
 #Extract gilded submissions
 def gilded():
     for submission in subreddit.gilded(limit = int(input("Number of submissions: "))):
         progress()
-        print("Submission Score: ", submission.score)
+        print("Submission Score: ", submission.score, "\n")
         print("Submission ID: ", submission.id,"\n")
 
 #Extract hot submissions
 def hot():
     for submission in subreddit.hot(limit = int(input("Number of submissions: "))):
         progress()
-        print("Submission Title: ", submission.title)
-        print("Submission Score: ", submission.score)
-        print("Submission ID: ", submission.id)
-        print("Submission URL: ", submission.url, "\n")
+        print("Submission Title: ", submission.title, "\n")
+        print("Context:", submission.selftext, "\n")
+        print("Submission Score: ", submission.score, "\n")
+        print("Submission ID: ", submission.id, "\n")
+        print("Submission URL: ", submission.url,"\n")
 
 #Extract New Submissions
 def new():
     for submission in subreddit.new(limit = int(input("Number of submissions: "))):
         progress()
-        print("Submission Title: ", submission.title)
-        print("Submission Score: ", submission.score)
-        print("Submission ID: ", submission.id)
-        print("Submission URL: ", submission.url, "\n")
+        print("Submission Title: ", submission.title, "\n")
+        print("Context:", submission.selftext, "\n")
+        print("Submission Score: ", submission.score, "\n")
+        print("Submission ID: ", submission.id, "\n")
+        print("Submission URL: ", submission.url,"\n")
 
 #Extract Rising Submissions
 def rising():
     for submission in subreddit.rising(limit = int(input("Number of submissions: "))):
         progress()
-        print("Submission Title: ", submission.title)
-        print("Submission Score: ", submission.score)
-        print("Submission ID: ", submission.id)
-        print("Submission URL: ", submission.url, "\n")
+        print("Submission Title: ", submission.title, "\n")
+        print("Context:", submission.selftext, "\n")
+        print("Submission Score: ", submission.score, "\n")
+        print("Submission ID: ", submission.id, "\n")
+        print("Submission URL: ", submission.url,"\n")
 
 #Extract Top Submissions
 def top():
     for submission in subreddit.top(limit = int(input("Number of submissions: "))):
         progress()
-        print("Submission Title: ", submission.title)
-        print("Submission Score: ", submission.score)
-        print("Submission ID: ", submission.id)
-        print("Submission URL: ", submission.url, "\n")
+        print("Submission Title: ", submission.title, "\n")
+        print("Context:", submission.selftext, "\n")
+        print("Submission Score: ", submission.score, "\n")
+        print("Submission ID: ", submission.id, "\n")
+        print("Submission URL: ", submission.url,"\n")
 
 """
 Dictionary mapping numbers to subbmission instances.
@@ -196,4 +202,9 @@ while True:
     except:
         console.log("Incorrect submission instace option, refer to the table!", style = "error")
         continue
-#Dummy Text
+
+#Obtain the Redditor and the 
+comment_id = input("Copy and past submission ID to pull comment: ")
+comment = reddit.comment(comment_id)
+body = comment.body
+console.print(body)
