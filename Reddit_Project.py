@@ -261,7 +261,7 @@ def top_comments():
         print("Reddit submission ID: ",top_level_comments[i].id)
         print("Reddit comment: ",top_level_comments[i].body, "\n")
 
-# Pull New comments
+# Pull new comments
 def new_comments():
     comment_submission =  reddit.submission(input("Copy and past the submission ID: "))
     print("\n")
@@ -271,7 +271,7 @@ def new_comments():
         print("Reddit submission ID: ",top_level_comments[i].id)
         print("Reddit comment: ",top_level_comments[i].body, "\n")
 
-#Pull Controversial Comments
+#Pull controversial comments
 def controversial_comments():
     comment_submission =  reddit.submission(input("Copy and past the submission ID: "))
     print("\n")
@@ -291,7 +291,7 @@ def old_comments():
         print("Reddit submission ID: ",top_level_comments[i].id)
         print("Reddit comment: ",top_level_comments[i].body, "\n")
 
-#Pull Question and Answers
+#Pull question and answers
 def qa_comments():
     comment_submission =  reddit.submission(input("Copy and past the submission ID: "))
     print("\n")
@@ -310,3 +310,5 @@ redditCommentInstances = {
     "5":old_comments,
     "6":qa_comments
 }
+
+#User input to chose from Reddit comments instances
