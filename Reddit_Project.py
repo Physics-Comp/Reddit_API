@@ -219,7 +219,7 @@ Given the posts above select the submission ID of the post that you want to pull
 md_pulling_comment_output = Markdown(md_pulling_comments)
 console.print(md_pulling_comment_output,"\n")
 
-#Table mapping
+#Table mapping for comment instances on Reddit
 #Title for Table
 table_comments = Table(title="Comment Attribute Key")
 
@@ -237,11 +237,76 @@ table_comments.add_row("5", "Old","Oldest Reddit posts in decending order over t
 table_comments.add_row("6", "Q&A","Shows all threads where OP responds to first level/parent comment. ")
 console.print(table_comments)
 
-#Functions of varying comment attributes
-comment_submission =  reddit.submission(input("Copy and past the submission ID: "))
-print("\n")
-comment_submission.comment_sort = "best"
-top_level_comments = list(comment_submission.comments)
-for i in range(len(top_level_comments)):
-    print("Reddit submission ID: ",top_level_comments[i].id)
-    print("Reddit comment: ",top_level_comments[i].body, "\n")
+"""
+The following functions below 
+"""
+#Set of comment instances dictionary
+#Pull best comments
+def best_comments():
+    comment_submission =  reddit.submission(input("Copy and past the submission ID: "))
+    print("\n")
+    comment_submission.comment_sort = "best"
+    top_level_comments = list(comment_submission.comments)
+    for i in range(len(top_level_comments)):
+        print("Reddit submission ID: ",top_level_comments[i].id)
+        print("Reddit comment: ",top_level_comments[i].body, "\n")
+
+#Pull top comments
+def top_comments():
+    comment_submission =  reddit.submission(input("Copy and past the submission ID: "))
+    print("\n")
+    comment_submission.comment_sort = "top"
+    top_level_comments = list(comment_submission.comments)
+    for i in range(len(top_level_comments)):
+        print("Reddit submission ID: ",top_level_comments[i].id)
+        print("Reddit comment: ",top_level_comments[i].body, "\n")
+
+# Pull New comments
+def new_comments():
+    comment_submission =  reddit.submission(input("Copy and past the submission ID: "))
+    print("\n")
+    comment_submission.comment_sort = "new"
+    top_level_comments = list(comment_submission.comments)
+    for i in range(len(top_level_comments)):
+        print("Reddit submission ID: ",top_level_comments[i].id)
+        print("Reddit comment: ",top_level_comments[i].body, "\n")
+
+#Pull Controversial Comments
+def controversial_comments():
+    comment_submission =  reddit.submission(input("Copy and past the submission ID: "))
+    print("\n")
+    comment_submission.comment_sort = "controversial"
+    top_level_comments = list(comment_submission.comments)
+    for i in range(len(top_level_comments)):
+        print("Reddit submission ID: ",top_level_comments[i].id)
+        print("Reddit comment: ",top_level_comments[i].body, "\n")
+
+#Pull old comments
+def old_comments():
+    comment_submission =  reddit.submission(input("Copy and past the submission ID: "))
+    print("\n")
+    comment_submission.comment_sort = "controversial"
+    top_level_comments = list(comment_submission.comments)
+    for i in range(len(top_level_comments)):
+        print("Reddit submission ID: ",top_level_comments[i].id)
+        print("Reddit comment: ",top_level_comments[i].body, "\n")
+
+#Pull Question and Answers
+def qa_comments():
+    comment_submission =  reddit.submission(input("Copy and past the submission ID: "))
+    print("\n")
+    comment_submission.comment_sort = "Q&A"
+    top_level_comments = list(comment_submission.comments)
+    for i in range(len(top_level_comments)):
+        print("Reddit submission ID: ",top_level_comments[i].id)
+        print("Reddit comment: ",top_level_comments[i].body, "\n")
+
+#Comment Instances Dictionary
+redditCommentInstances = {
+    "1":best_comments,
+    "2":top_comments,
+    "3":new_comments,
+    "4":controversial_comments,
+    "5":old_comments,
+    "6":qa_comments
+}
