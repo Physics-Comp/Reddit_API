@@ -96,63 +96,68 @@ def progress():
 """
 Below we have series of functions for specific Reddit instance submissions. Below are the most
 popular Reddit instance submissions.
-"""    
+"""
+
+#Submission ID List
+submission_ID_List = []
+
 #Extract all controversial submissions
 def controversial():
     for submission in subreddit.controversial(limit = int(input("Number of submissions: "))):
+        print("\n")
         progress()
-        print("Submission Title: ", submission.title, "\n")
-        print("Context:", submission.selftext, "\n")
-        print("Submission Score: ", submission.score, "\n")
-        print("Submission ID: ", submission.id, "\n")
-        print("Submission URL: ", submission.url,"\n")
+        console.print("[underline]Submission Title:[/underline] ", submission.title, "\n")
+        console.print("[underline]Context:[/underline] ", submission.selftext, "\n")
+        console.print("[underline]Submission Score:[/underline] ", submission.score, "\n")
+        console.print("[underline]Submission ID:[/underline] ", submission.id)
+        console.print("[underline]Submission URL:[/underline] ", submission.url)
 
 #Extract gilded submissions
 def gilded():
     for submission in subreddit.gilded(limit = int(input("Number of submissions: "))):
         progress()
-        print("Submission Score: ", submission.score, "\n")
-        print("Submission ID: ", submission.id,"\n")
+        console.print("[underline]Submission Score:[/underline] ", submission.score, "\n")
+        console.print("[underline]Submission ID:[/underline] ", submission.id,"\n")
 
 #Extract hot submissions
 def hot():
     for submission in subreddit.hot(limit = int(input("Number of submissions: "))):
         progress()
-        print("Submission Title: ", submission.title, "\n")
-        print("Context:", submission.selftext, "\n")
-        print("Submission Score: ", submission.score, "\n")
-        print("Submission ID: ", submission.id, "\n")
-        print("Submission URL: ", submission.url,"\n")
+        console.print("[underline]Submission Title:[/underline] ", submission.title, "\n")
+        console.print("[underline]Context:[/underline] ", submission.selftext, "\n")
+        console.print("[underline]Submission Score:[/underline] ", submission.score, "\n")
+        console.print("[underline]Submission ID:[/underline] ", submission.id)
+        console.print("[underline]Submission URL:[/underline] ", submission.url)
 
 #Extract New Submissions
 def new():
     for submission in subreddit.new(limit = int(input("Number of submissions: "))):
         progress()
-        print("Submission Title: ", submission.title, "\n")
-        print("Context:", submission.selftext, "\n")
-        print("Submission Score: ", submission.score, "\n")
-        print("Submission ID: ", submission.id, "\n")
-        print("Submission URL: ", submission.url,"\n")
+        console.print("[underline]Submission Title:[/underline] ", submission.title, "\n")
+        # console.printt("[underline]Context:[/underline] ", submission.selftext, "\n")
+        console.print("[underline]Submission Score:[/underline] ", submission.score, "\n")
+        console.print("[underline]Submission ID:[/underline] ", submission.id)
+        console.print("[underline]Submission URL:[/underline] ", submission.url, "\n")
 
 #Extract Rising Submissions
 def rising():
     for submission in subreddit.rising(limit = int(input("Number of submissions: "))):
         progress()
-        print("Submission Title: ", submission.title, "\n")
-        print("Context:", submission.selftext, "\n")
-        print("Submission Score: ", submission.score, "\n")
-        print("Submission ID: ", submission.id, "\n")
-        print("Submission URL: ", submission.url,"\n")
+        console.print("[underline]Submission Title:[/underline] ", submission.title, "\n")
+        console.print("[underline]Context:[/underline] ", submission.selftext, "\n")
+        console.print("[underline]Submission Score:[/underline] ", submission.score, "\n")
+        console.print("[underline]Submission ID:[/underline] ", submission.id)
+        console.print("[underline]Submission URL:[/underline] ", submission.url)
 
 #Extract Top Submissions
 def top():
     for submission in subreddit.top(limit = int(input("Number of submissions: "))):
         progress()
-        print("Submission Title: ", submission.title, "\n")
-        print("Context:", submission.selftext, "\n")
-        print("Submission Score: ", submission.score, "\n")
-        print("Submission ID: ", submission.id, "\n")
-        print("Submission URL: ", submission.url,"\n")
+        console.print("[underline]Submission Title:[/underline] ", submission.title, "\n")
+        console.print("[underline]Context:[/underline] ", submission.selftext, "\n")
+        console.print("[underline]Submission Score:[/underline] ", submission.score, "\n")
+        console.print("[underline]Submission ID:[/underline] ", submission.id)
+        console.print("[underline]Submission URL:[/underline] ", submission.url)
 
 """
 Dictionary mapping numbers to subbmission instances.
@@ -177,6 +182,7 @@ md_subreddit_submission = """
 md_reddit_subinstance = Markdown(md_subreddit_submission)
 console.print(md_reddit_subinstance,"\n")
 
+#Table for mapping a number to the Reddit Submission Instance
 #Title for Table
 table = Table(title="Submission Instance Key")
 
@@ -197,14 +203,45 @@ console.print(table)
 #Determine if you have a correct reddit submission opiton
 while True:
     try:
-        submissionChoice = redditSubmissionInstances[input("Choose a Reddit Submission Instace Number: ")]()
+        submissionChoice = redditSubmissionInstances[input("Choose a Reddit Submission Instance Number: ")]()
         break;
     except:
         console.log("Incorrect submission instace option, refer to the table!", style = "error")
         continue
 
-#Obtain the Redditor and the 
-comment_id = input("Copy and past submission ID to pull comment: ")
-comment = reddit.comment(comment_id)
-body = comment.body
-console.print(body)
+#Pulling comments from a post
+md_pulling_comments = """
+## Pull Comments from Reddit Post
+
+Given the posts above select the submission ID of the post that you want to pull comments from.
+
+"""
+md_pulling_comment_output = Markdown(md_pulling_comments)
+console.print(md_pulling_comment_output,"\n")
+
+#Table mapping
+#Title for Table
+table_comments = Table(title="Comment Attribute Key")
+
+#Columns of Table
+table_comments.add_column("Reddit Comment. No.", style="cyan", no_wrap=True)
+table_comments.add_column("Comment Instance", style="magenta")
+table_comments.add_column("Description")
+
+#Rows of Table
+table_comments.add_row("1", "Best", "Comments with a greater proportion of upvotes to downvotes in decending order. \n")
+table_comments.add_row("2", "Top", "Comments with the most upvotes regardless of downvotes. \n")
+table_comments.add_row("3", "New", "Most recent comments on Reddit post in acceding order. \n")
+table_comments.add_row("4", "Controversial","Number of upvotes being roughly equal to the number of downvotes.\n")
+table_comments.add_row("5", "Old","Oldest Reddit posts in decending order over time. \n")
+table_comments.add_row("6", "Q&A","Shows all threads where OP responds to first level/parent comment. ")
+console.print(table_comments)
+
+#Functions of varying comment attributes
+comment_submission =  reddit.submission(input("Copy and past the submission ID: "))
+print("\n")
+comment_submission.comment_sort = "best"
+top_level_comments = list(comment_submission.comments)
+for i in range(len(top_level_comments)):
+    print("Reddit submission ID: ",top_level_comments[i].id)
+    print("Reddit comment: ",top_level_comments[i].body, "\n")
